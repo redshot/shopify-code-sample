@@ -1,0 +1,98 @@
+<div class="component_header_bg-img-wrap">
+  <div class="image-overlay"></div>
+  {% if section.settings.desktop_image != blank %}
+    {{
+      section.settings.desktop_image
+      | image_url: width: 3840
+      | image_tag:
+        loading: 'eager',
+        fetchpriority: 'high',
+        sizes: '(min-width: 992px) 100vw, 0px',
+        widths: '992, 1200, 1600, 2000, 2400, 3000, 3840',
+        class: 'hide-tablet',
+        alt: section.settings.image_alt
+    }}
+  {% endif %}
+  {% if section.settings.mobile_image != blank %}
+    {{
+      section.settings.mobile_image
+      | image_url: width: 991
+      | image_tag:
+        loading: 'eager',
+        fetchpriority: 'high',
+        sizes: '(max-width: 991px) 100vw, 0px',
+        widths: '375, 480, 640, 768, 991',
+        class: 'hide-desktop',
+        alt: section.settings.image_alt
+    }}
+  {% endif %}
+</div>
+<div class="padding-global">
+  <div class="container-large">
+    <div class="component_header_component padding-section-small">
+      <h1 class="text-color-white">
+        {{ section.settings.heading | default: 'Heading' }}
+      </h1>
+      <div
+        id="w-node-_7564df78-1027-6881-ef81-747fccb7b647-ccb7b63d"
+        class="max-width-small"
+      >
+        <div class="text-color-white">
+          {{ section.settings.subtext }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "tag": "section",
+  "name": "collection-hero",
+  "class": "component_header_section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile"
+    },
+    {
+      "id": "image_alt",
+      "type": "text",
+      "label": "Alt"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading"
+    },
+    {
+      "id": "subtext",
+      "type": "richtext",
+      "label": "Subtext"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection hero",
+      "category": "Section",
+      "blocks": [
+
+      ]
+    }
+  ]
+}
+{% endschema %}
