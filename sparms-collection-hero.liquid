@@ -1,3 +1,18 @@
+{% comment %}
+Custom Shopify Collection Hero section with separate desktop and mobile images.
+
+Features:
+
+* Includes customizable ALT property text for SEO.
+* Uses Shopify's image_tag filter to generate responsive images.
+* Uses loading: 'eager' and fetchpriority: 'high' for above-the-fold images.
+* Provides multiple image widths so the browser can select the most
+  appropriate image size based on the viewport.
+* Organizes the section settings into labeled groups, such as
+  "Background image" and "Heading", for easier management in the
+  Shopify Theme Editor.
+  {% endcomment %}
+
 <div class="component_header_bg-img-wrap">
   <div class="image-overlay"></div>
   {% if section.settings.desktop_image != blank %}
